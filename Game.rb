@@ -34,7 +34,7 @@ class Game
       end_game
     else
       switch_player
-      puts "\n-------- New Turn --------"
+      puts "\n--------- New Turn ---------"
       next_turn
     end
   end
@@ -45,10 +45,15 @@ class Game
 
   def show_score
     puts "P1: #{@player_1.current_lives}/3 vs P2: #{@player_2.current_lives}/3"
+    puts "----------------------------"
   end
 
   def end_game
-    puts "\nPlayer #{@current_player.id} wins with a score of #{@current_player.current_lives}/3"
+    puts "\nPlayer #{@current_player.id} is out of lives!"
+
+    switch_player
+
+    puts "Player #{@current_player.id} wins with a score of #{@current_player.current_lives}/3"
     puts "\n-------- Game Over --------"
     puts "-------- Good Bye! --------"
     exit(0)
