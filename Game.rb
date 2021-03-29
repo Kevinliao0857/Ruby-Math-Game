@@ -15,17 +15,7 @@ class Game
   end
 
   def ask_to_start
-    (1..2).each do |id|
-      puts "\nPlease type 'y' to start."
-      puts "\nPlayer #{id}: Ready to start?"
-      print "> "
-      answer = gets.chomp
-      while (answer != "y")
-        puts "Please type 'y' to start. Ready to start?"
-        print "> "
-        answer = gets.chomp
-      end
-    end
+    puts "\n---------- READY SET GO ----------"
     puts "\n-------- GAME STARTS NOW! --------"
     next_turn
   end
@@ -44,20 +34,24 @@ class Game
       end_game
     else
       switch_player
-      puts "\n----- New Turn -----"
+      puts "\n-------- New Turn --------"
       next_turn
     end
   end
-  # def switch_player
 
-  # end
+  def switch_player
+    @current_player = @current_player == @player_1 ? @player_2 : @player_1
+  end
 
   def show_score
     puts "P1: #{@player_1.current_lives}/3 vs P2: #{@player_2.current_lives}/3"
   end
 
-  # def end_game
-  
-  # end
+  def end_game
+    puts "\nPlayer #{@current_player.id} wins with a score of #{@current_player.current_lives}/3"
+    puts "\n-------- Game Over --------"
+    puts "-------- Good Bye! --------"
+    exit(0)
+  end
 
 end
