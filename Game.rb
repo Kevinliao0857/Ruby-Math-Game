@@ -26,7 +26,7 @@ class Game
 
     if (player_answer == false)
       @current_player.lose_life
-  end
+    end
 
     show_score
 

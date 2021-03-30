@@ -1,7 +1,7 @@
 class Turn
 
-  def initialize(player_id)
-    @id = player_id
+  def initialize(id)
+    @id = id
     @question = Question.new
   end
 
